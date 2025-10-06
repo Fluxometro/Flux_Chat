@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Paperclip } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -28,6 +28,10 @@ export default function MessageInput({
     }
   };
 
+  const handleAttachment = () => {
+    console.log('Attachment clicked');
+  };
+
   return (
     <div className="flex items-end gap-3 p-4 bg-card border-t border-border">
       <Textarea
@@ -39,6 +43,15 @@ export default function MessageInput({
         rows={1}
         data-testid="input-message"
       />
+      <Button
+        onClick={handleAttachment}
+        size="icon"
+        variant="secondary"
+        className="rounded-full flex-shrink-0"
+        data-testid="button-attachment"
+      >
+        <Paperclip className="h-5 w-5" />
+      </Button>
       <Button
         onClick={handleSend}
         size="icon"
